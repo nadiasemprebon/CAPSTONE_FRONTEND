@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { IUser } from '../../models/iuser';
 
 @Component({
   selector: 'app-register',
@@ -6,5 +9,29 @@ import { Component } from '@angular/core';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+
+  registerData:Partial<IUser> = {
+    username: "john_doe",
+    password: "securePassword123",
+    firstName: "jhon",
+    lastName: "doe",
+    email: "john.doe@example.com",
+    role: "USER"
+  }
+
+  constructor(
+    private authSvc:AuthService,
+    private router:Router
+    ){}
+
+  signUp(){
+    this.authSvc.register(this.registerData)
+    .subscribe(data => {
+
+      this.router.navigate(['/auth/login'])
+
+    })
+  }
+
 
 }

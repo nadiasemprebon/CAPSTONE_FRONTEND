@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {  HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -14,12 +16,16 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
 
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
