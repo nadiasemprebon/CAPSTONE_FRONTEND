@@ -11,12 +11,12 @@ import { IUser } from '../../models/iuser';
 export class RegisterComponent {
 
   registerData:Partial<IUser> = {
-    username: "john_doe",
+    userName: "john_doe",
     password: "securePassword123",
     firstName: "jhon",
     lastName: "doe",
     email: "john.doe@example.com",
-    role: "USER"
+
   }
 
   constructor(
