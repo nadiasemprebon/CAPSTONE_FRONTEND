@@ -3,7 +3,7 @@ import { IUser } from '../models/iuser';
 import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
-import { Data, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { environment } from '../../environments/environment.development';
 import { ILogInData } from '../models/ilog-in-data';
 
