@@ -1,0 +1,27 @@
+footer {
+  background-color: #f8f9fa;
+  padding: 1.5rem 0;
+}
+
+footer .nav {
+  justify-content: center;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+footer .nav-link {
+  color: #6c757d;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+footer .nav-link:hover {
+  color: #343a40;
+}
+
+footer p {
+  text-align: center;
+  color: #6c757d;
+  margin: 0;
+}
