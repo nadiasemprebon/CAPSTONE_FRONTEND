@@ -18,8 +18,9 @@
       </ul>
       <div class="col-md-3 text-end">
         <button routerLink="/auth/login" type="button" class="btn btn-outline-primary me-2">Login</button>
+
         <button routerLink="/auth/register" type="button" class="btn btn-primary">Register</button>
-      </div>
+        <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger">Esci</button></div>
     </div>
   </div>
 </nav>
