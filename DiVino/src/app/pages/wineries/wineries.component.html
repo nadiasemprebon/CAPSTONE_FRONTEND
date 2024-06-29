@@ -1,1 +1,25 @@
-<p>wineries works!</p>
+<form>
+
+  <input type="text" name="winaryName"
+  [(ngModel)]="newWinery.wineryName"
+  class="form-control" placeholder="winaryName">
+
+  <input type="text" name="location"
+  [(ngModel)]="newWinery.location"
+  class="form-control" placeholder="location">
+
+  <input type="email" name="description"
+  [(ngModel)]="newWinery.description"
+  class="form-control" placeholder="description">
+
+  <!--<input type="url" name="image"
+  [(ngModel)]="newWinery.image"
+  class="form-control" placeholder="image">!-->
+
+  <input type="text" name="tastingExperience"
+  [(ngModel)]="newWinery.tastingExperience"
+  class="form-control" placeholder="tastingExperience">
+
+  <button (click)="aggiungiWinery()" class="btn btn-primary">Crea</button>
+
+</form>

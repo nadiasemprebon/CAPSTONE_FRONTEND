@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TravelpackagesRoutingModule } from './travelpackages-routing.module';
 import { TravelpackagesComponent } from './travelpackages.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TravelpackagesComponent } from './travelpackages.component';
   ],
   imports: [
     CommonModule,
-    TravelpackagesRoutingModule
+    TravelpackagesRoutingModule,
+    FormsModule
   ]
 })
 export class TravelpackagesModule { }
