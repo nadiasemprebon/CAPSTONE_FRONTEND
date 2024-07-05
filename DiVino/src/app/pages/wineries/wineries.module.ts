@@ -6,11 +6,12 @@ import { WineriesComponent } from './wineries.component';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { AuthInterceptor } from '../../auth/auth.interceptor';
+import { PopUpComponent } from '../../popup/popup.component';
 
 
 @NgModule({
   declarations: [
-    WineriesComponent
+    WineriesComponent, PopUpComponent
   ],
   imports: [
     CommonModule,
