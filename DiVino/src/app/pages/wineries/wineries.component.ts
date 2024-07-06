@@ -2,6 +2,9 @@ import { WineryServiceService } from './winery-service.service';
 import { Component, ViewChild } from '@angular/core';
 import { IWinery } from '../../interfaces/iwinery';
 import { NgForm } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PopUpComponent } from '../../popup/popup.component';
+
 
 @Component({
   selector: 'app-wineries',
@@ -10,24 +13,27 @@ import { NgForm } from '@angular/forms';
 })
 export class WineriesComponent {
   newWinery: Partial<IWinery> = {};
-  showPopup: boolean = false;
-  popupData: Partial<IWinery> = {};  // Inizializzato come oggetto vuoto
 
-  @ViewChild('wineryForm') wineryForm: NgForm | null = null;
+  @ViewChild('wineryForm') wineryForm!: NgForm;
 
-  constructor(private WinSvc: WineryServiceService) {}
+  constructor(private WinSvc: WineryServiceService, private modalService: NgbModal) {}
 
   aggiungiWinery() {
-    this.WinSvc.create(this.newWinery).subscribe(() => {
-      this.popupData = { ...this.newWinery }; // Copia dei dati del form
-      this.showPopup = true;
-      this.newWinery = {};
-      this.wineryForm?.resetForm();
-    });
+    if (this.wineryForm.valid) {
+      this.WinSvc.create(this.newWinery).subscribe(() => {
+        const modalRef = this.modalService.open(PopUpComponent);
+        modalRef.componentInstance.wineryData = { ...this.newWinery };
+        modalRef.result.then(() => {
+          this.newWinery = {};
+          this.wineryForm.resetForm();
+        }).catch((err) => {
+          console.error('Error closing modal: ', err);
+        });
+      });
+    }
   }
 
   closePopup() {
-    this.showPopup = false;
-    this.popupData = {};  // Reset a un oggetto vuoto anziché null
+    this.modalService.dismissAll();
   }
 }

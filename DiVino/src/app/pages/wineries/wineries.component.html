@@ -1,21 +1,20 @@
-<form #wineryForm="ngForm">
-  <input type="text" name="winaryName"
+<h1>Crea una Cantina</h1>
+<form #wineryForm="ngForm" (ngSubmit)="aggiungiWinery()">
+  <input type="text" name="wineryName"
     [(ngModel)]="newWinery.wineryName"
-    class="form-control" placeholder="winaryName">
+    class="form-control" placeholder="wineryName" required>
 
   <input type="text" name="location"
     [(ngModel)]="newWinery.location"
-    class="form-control" placeholder="location">
+    class="form-control" placeholder="location" required>
 
-  <input type="email" name="description"
+  <input type="text" name="description"
     [(ngModel)]="newWinery.description"
-    class="form-control" placeholder="description">
+    class="form-control" placeholder="description" required>
 
   <input type="text" name="tastingExperience"
     [(ngModel)]="newWinery.tastingExperience"
-    class="form-control" placeholder="tastingExperience">
+    class="form-control" placeholder="tastingExperience" required>
 
-  <button (click)="aggiungiWinery()" class="btn btn-primary">Crea</button>
+  <button type="submit" class="btn btn-primary">Crea</button>
 </form>
-
-<app-popup *ngIf="showPopup" [wineryData]="popupData" (close)="closePopup()"></app-popup>

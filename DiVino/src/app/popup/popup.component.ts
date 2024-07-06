@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IWinery } from '../interfaces/iwinery';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-popup',
@@ -8,9 +9,6 @@ import { IWinery } from '../interfaces/iwinery';
 })
 export class PopUpComponent {
   @Input() wineryData: Partial<IWinery> = {};
-  @Output() close = new EventEmitter<void>();
 
-  closePopup() {
-    this.close.emit();
-  }
+  constructor(public activeModal: NgbActiveModal) { }
 }
