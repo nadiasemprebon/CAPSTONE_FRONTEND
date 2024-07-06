@@ -1,0 +1,26 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+.content {
+  padding: 2rem 1rem;
+}
+.cta-button {
+  background-color: #4b0082;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.cta-button:hover {
+  background-color: #800000;
+  color: white;
+}

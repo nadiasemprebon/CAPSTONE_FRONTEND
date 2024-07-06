@@ -1,45 +1,67 @@
+/* Navbar CSS */
 .navbar {
-  background-color: #f8f9fa; /* Colore di sfondo chiaro */
+  background-color: #ffffff; /* Sfondo bianco */
   padding: 1rem 0; /* Padding superiore e inferiore */
+  width: 100%;
+  z-index: 1000;
+  font-family: 'Arial', sans-serif; /* Font elegante */
 }
 
 .navbar-brand {
-  color: #343a40; /* Colore del testo principale */
+  color: #4b0082; /* Colore del testo principale */
   font-weight: bold; /* Grassetto */
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .logo {
+  height: 30px;
+  margin-right: 10px;
 }
 
 .navbar-nav .nav-link {
-  color: #6c757d; /* Colore del testo secondario */
+  color: #4b0082; /* Colore del testo secondario */
   padding: 0.5rem 1rem; /* Padding laterale */
   text-decoration: none; /* Rimuovi la sottolineatura */
+  font-size: 1rem; /* Dimensione del font */
 }
 
 .navbar-nav .nav-link:hover {
-  color: #343a40; /* Colore del testo al passaggio del mouse */
+  color: #800000; /* Colore del testo al passaggio del mouse rosso borgogna */
 }
 
-.navbar-nav .dropdown-menu {
-  background-color: #f8f9fa; /* Colore di sfondo chiaro */
+.btn-outline-primary {
+  color: #4b0082; /* Colore del testo del pulsante */
+  border-color: #4b0082; /* Colore del bordo del pulsante */
+  margin-right: 10px;
 }
 
-.navbar-nav .dropdown-item {
-  color: #343a40; /* Colore del testo principale */
-}
-
-.navbar-nav .dropdown-item:hover {
-  background-color: #e9ecef; /* Colore di sfondo al passaggio del mouse */
-}
-
-.navbar .form-control {
-  width: 300px; /* Larghezza dell'input di ricerca */
-}
-
-.navbar .btn-outline-success {
-  color: #28a745; /* Colore del testo del pulsante */
-  border-color: #28a745; /* Colore del bordo del pulsante */
-}
-
-.navbar .btn-outline-success:hover {
-  background-color: #28a745; /* Colore di sfondo al passaggio del mouse */
+.btn-outline-primary:hover {
+  background-color: #4b0082; /* Colore di sfondo al passaggio del mouse */
   color: #fff; /* Colore del testo al passaggio del mouse */
+}
+
+.btn-primary {
+  background-color: #4b0082; /* Colore di sfondo del pulsante primario */
+  border-color: #4b0082; /* Colore del bordo del pulsante primario */
+  color: #fff; /* Colore del testo del pulsante primario */
+  margin-right: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #800000; /* Colore di sfondo del pulsante primario al passaggio del mouse */
+  border-color: #800000; /* Colore del bordo del pulsante primario al passaggio del mouse */
+}
+
+.btn-danger {
+  margin-right: 10px;
+}
+
+.d-flex .bi-cart {
+  font-size: 1.5rem;
+  color: #4b0082;
+}
+
+.d-flex .bi-cart:hover {
+  color: #800000; /* Colore al passaggio del mouse rosso borgogna */
 }
