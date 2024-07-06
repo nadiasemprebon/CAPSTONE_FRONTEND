@@ -9,69 +9,61 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root'
 })
 export class TravelpackageServiceService {
+  travelpackage: ITravelpackage[] = [];
+  travelpackageSubject = new BehaviorSubject<ITravelpackage[]>([]);
+  travelpackage$ = this.travelpackageSubject.asObservable();
 
-  travelpackage:ITravelpackage[]=[]
+  constructor(private http: HttpClient, private authSvc: AuthService) {
+    this.getAll().subscribe();
+  }
 
-  travelpackageSubject = new BehaviorSubject<ITravelpackage[]>([])
-  travelpackage$ = this.travelpackageSubject.asObservable()
+  apiUrl: string = environment.travelpackageUrl;
 
-  constructor(  private http:HttpClient,
-    private authSvc:AuthService) {
+  getAll(): Observable<ITravelpackage[]> {
+    return this.http.get<ITravelpackage[]>(this.apiUrl).pipe(
+      tap(trav => {
+        this.travelpackageSubject.next(trav);
+        this.travelpackage = trav;
+      })
+    );
+  }
 
-      this.getAll().subscribe()
-     }
+  getById(id: number): ITravelpackage | null {
+    return this.travelpackage.find(u => u.id == id) || null;
+  }
 
-     apiUrl:string = environment.travelpackageUrl
+  update(travel: ITravelpackage) {
+    return this.http.put<ITravelpackage>(this.apiUrl + `/${travel.id}`, travel).pipe(
+      tap(trav => {
+        const index = this.travelpackage.findIndex(u => u.id == travel.id);
+        this.travelpackage.splice(index, 1, trav);
+        this.travelpackageSubject.next(this.travelpackage);
+      })
+    );
+  }
 
-     getAll():Observable<ITravelpackage[]>{
-      return this.http.get<ITravelpackage[]>(this.apiUrl)
-      .pipe(tap(trav => {
-        this.travelpackageSubject.next(trav)
-        this.travelpackage = trav
-      }))
-    }
+  create(travel: Partial<ITravelpackage>) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.authSvc.getAccessToken()}`
+      })
+    };
 
-    getById(id:number):ITravelpackage|null{
+    return this.http.post<ITravelpackage>(this.apiUrl, travel).pipe(
+      tap(trav => {
+        this.travelpackage.push(trav);
+        this.travelpackageSubject.next(this.travelpackage);
+      })
+    );
+  }
 
-
-      return this.travelpackage.find(u => u.id == id) || null
-    }
-
-    update(travel:ITravelpackage){
-      return this.http.put<ITravelpackage>(this.apiUrl+`/${travel.id}`,travel)
-      .pipe(tap(trav => {//ricevo lo user aggiornato
-        const index = this.travelpackage.findIndex(u => u.id == travel.id)
-        this.travelpackage.splice(index, 1, trav)
-
-        this.travelpackageSubject.next(this.travelpackage)
-      }))
-    }
-
-    create(travel:Partial<ITravelpackage>){
-      const httpOptions = {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.authSvc.getAccessToken()}`
-        })
-        }
-
-
-      return this.http.post<ITravelpackage>(this.apiUrl,travel)
-      .pipe(tap(trav => {//ricevo lo user aggiornato
-
-        this.travelpackage.push(trav)
-        this.travelpackageSubject.next(this.travelpackage)
-      }))
-    }
-
-    delete(id:number){
-      return this.http.delete<ITravelpackage>(this.apiUrl+`/${id}`)
-      .pipe(tap(() => {
-        const index = this.travelpackage.findIndex(u => u.id == id)
-        this.travelpackage.splice(index, 1)
-
-        this.travelpackageSubject.next(this.travelpackage)
-      }))
-    }
+  delete(id: number) {
+    return this.http.delete<ITravelpackage>(this.apiUrl + `/${id}`).pipe(
+      tap(() => {
+        const index = this.travelpackage.findIndex(u => u.id == id);
+        this.travelpackage.splice(index, 1);
+        this.travelpackageSubject.next(this.travelpackage);
+      })
+    );
+  }
 }
-
-

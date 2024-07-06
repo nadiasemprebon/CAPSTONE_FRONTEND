@@ -5,17 +5,16 @@ import { TravelpackageServiceService } from './travelpackage-service.service';
 @Component({
   selector: 'app-travelpackages',
   templateUrl: './travelpackages.component.html',
-  styleUrl: './travelpackages.component.scss'
+  styleUrls: ['./travelpackages.component.scss']
 })
 export class TravelpackagesComponent {
-  newTravelpackage:Partial<ITravelpackage> = {}
+  newTravelpackage: Partial<ITravelpackage> = {};
 
-  constructor(private travSvc:TravelpackageServiceService){}
+  constructor(private travSvc: TravelpackageServiceService) {}
 
-  aggiungiTravelpackage(){
-    this.travSvc.create(this.newTravelpackage).subscribe(()=>{
-      this.newTravelpackage = {}
-    })
+  aggiungiTravelpackage() {
+    this.travSvc.create(this.newTravelpackage).subscribe(() => {
+      this.newTravelpackage = {};
+    });
   }
-
 }
