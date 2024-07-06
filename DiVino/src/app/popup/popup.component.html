@@ -1,10 +1,13 @@
-<div class="popup">
-  <div class="popup-content">
-    <h2>Winery Details</h2>
-    <p><strong>Winery Name:</strong> {{ wineryData.wineryName }}</p>
-    <p><strong>Location:</strong> {{ wineryData.location }}</p>
-    <p><strong>Description:</strong> {{ wineryData.description }}</p>
-    <p><strong>Tasting Experience:</strong> {{ wineryData.tastingExperience }}</p>
-    <button (click)="closePopup()" class="btn btn-secondary">Close</button>
-  </div>
+<div class="modal-header">
+  <h4 class="modal-title">Winery Details</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+</div>
+<div class="modal-body">
+  <p><strong>Winery Name:</strong> {{ wineryData.wineryName }}</p>
+  <p><strong>Location:</strong> {{ wineryData.location }}</p>
+  <p><strong>Description:</strong> {{ wineryData.description }}</p>
+  <p><strong>Tasting Experience:</strong> {{ wineryData.tastingExperience }}</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="closePopup()">Close</button>
 </div>

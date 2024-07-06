@@ -1,37 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { IUser } from '../../models/iuser';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { PopupRegisterComponent } from '../popup-register/popup-register.component';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
 
-  registerData:Partial<IUser> = {
+  registerData: Partial<IUser> = {
     userName: "john_doe",
     password: "securePassword123",
-    firstName: "jhon",
+    firstName: "john",
     lastName: "doe",
     email: "john.doe@example.com",
+  };
 
-  }
+  @ViewChild('registerForm') registerForm!: NgForm;
 
   constructor(
-    private authSvc:AuthService,
-    private router:Router
-    ){}
+    private authSvc: AuthService,
+    private router: Router,
+    private modalService: NgbModal
+  ) { }
 
-  signUp(){
-    this.authSvc.register(this.registerData)
-    .subscribe(data => {
-
-      this.router.navigate(['/auth/login'])
-
-    })
+  signUp() {
+    if (this.registerForm.valid) {
+      this.authSvc.register(this.registerData)
+        .subscribe(data => {
+          const modalRef = this.modalService.open(PopupRegisterComponent);
+          modalRef.componentInstance.message = 'Registrazione completata con successo!';
+          modalRef.result.then(() => {
+            this.router.navigate(['/auth/login']);
+          }).catch((err) => {
+            console.error('Error closing modal: ', err);
+          });
+        });
+    }
   }
-
-
 }
