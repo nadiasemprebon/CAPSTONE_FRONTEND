@@ -16,6 +16,8 @@ export class HomeComponent {
     this.travelpackageService.travelpackage$.subscribe(travelpackages => {
       this.travelpackages = travelpackages;
     });
+
+    this.travelpackageService.getAll().subscribe()
   }
 
 }
