@@ -20,16 +20,16 @@
   </div>
 
   <!-- cards ciclo -->
-
   <div *ngFor="let package of travelpackages" class="card mt-3">
-    <div class="card-img" ><img src="../../../assets/LANDING PAGE.webp" alt="vitigni">
+    <div class="card-img">
+      <img *ngIf="package.imageUrl" [src]="package.imageUrl" alt="vitigni">
       <div class="img"></div>
     </div>
     <div class="card-title">{{ package.travelPackageName }}</div>
     <div class="card-subtitle">
       Winery ID: {{ package.wineryId }}<br>
-      Start Date: {{ package.startDate }}<br>
-      End Date: {{ package.endDate }}
+      Start Date: {{ package.startDate | date }}<br>
+      End Date: {{ package.endDate | date }}
     </div>
     <hr class="card-divider">
     <div class="card-footer">
@@ -44,8 +44,3 @@
       </button>
     </div>
   </div>
-
-
-
-</body>
-</html>

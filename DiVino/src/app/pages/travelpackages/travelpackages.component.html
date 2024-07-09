@@ -1,14 +1,9 @@
 <form class="pt-5">
-
-  <input type="text" name="wineryId" [(ngModel)]="newTravelpackage.wineryId" class="form-control" placeholder="wineryId">
-
+  <input type="number" name="wineryId" [(ngModel)]="newTravelpackage.wineryId" class="form-control" placeholder="wineryId">
   <input type="text" name="travelPackageName" [(ngModel)]="newTravelpackage.travelPackageName" class="form-control" placeholder="travelPackageName">
-
   <input type="date" name="startDate" [(ngModel)]="newTravelpackage.startDate" class="form-control" placeholder="startDate">
-
   <input type="date" name="endDate" [(ngModel)]="newTravelpackage.endDate" class="form-control" placeholder="endDate">
-
   <input type="number" name="price" [(ngModel)]="newTravelpackage.price" class="form-control" placeholder="price">
-
+  <input type="file" (change)="onFileSelected($event)" class="form-control">
   <button (click)="aggiungiTravelpackage()" class="btn btn-primary">Crea</button>
 </form>

@@ -1,7 +1,3 @@
-/* before adding the img to the div with the
-"card-img" class, remove css styles
-.card-img .img::before and .card-img .img::after,
-then set the desired styles for .card-img. */
 .card {
   --font-color: #323232;
   --font-color-sub: #666;
@@ -27,14 +23,14 @@ then set the desired styles for .card-img. */
 }
 
 .card-img {
-    /* clear and add new css */
+  /* clear and add new css */
   transition: all 0.5s;
   display: flex;
   justify-content: center;
 }
 
 .card-img .img {
- /* delete */
+  /* delete */
   transform: scale(1);
   position: relative;
   box-sizing: border-box;
@@ -48,7 +44,7 @@ then set the desired styles for .card-img. */
 }
 
 .card-img .img::before {
- /* delete */
+  /* delete */
   content: '';
   position: absolute;
   width: 65px;
@@ -65,7 +61,7 @@ then set the desired styles for .card-img. */
 }
 
 .card-img .img::after {
- /* delete */
+  /* delete */
   content: '';
   position: absolute;
   box-sizing: border-box;
@@ -76,7 +72,7 @@ then set the desired styles for .card-img. */
   top: -13px;
   background-repeat: no-repeat;
   background-image: linear-gradient(80deg,#ffc0cb 45%,transparent 45%),linear-gradient(-175deg,#ffc0cb 45%,transparent 45%),linear-gradient(80deg,rgba(0,0,0,0.2) 51%,rgba(0,0,0,0) 51%),linear-gradient(-175deg,rgba(0,0,0,0.2) 51%,rgba(0,0,0,0) 51%),radial-gradient(circle at center,#ffa6b6 45%,rgba(0,0,0,0.2) 45%,rgba(0,0,0,0.2) 52%,rgba(0,0,0,0) 52%),linear-gradient(45deg,rgba(0,0,0,0) 48%,rgba(0,0,0,0.2) 48%,rgba(0,0,0,0.2) 52%,rgba(0,0,0,0) 52%),linear-gradient(65deg,rgba(0,0,0,0) 48%,rgba(0,0,0,0.2) 48%,rgba(0,0,0,0.2) 52%,rgba(0,0,0,0) 52%),linear-gradient(22deg,rgba(0,0,0,0) 48%,rgba(0,0,0,0.2) 48%,rgba(0,0,0,0.2) 54%,rgba(0,0,0,0) 54%);
-  background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 75%,100% 95%,100% 60%;
+  background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 75%,100% 95%,100% 60%;
   background-position: center center;
   border-top-left-radius: 120px;
   border-top-right-radius: 10px;
@@ -156,4 +152,14 @@ then set the desired styles for .card-img. */
 
 .card-btn:active {
   transform: translateY(3px);
+}
+
+/* Additional styles for delete button */
+.card-btn.delete {
+  background-color: red;
+  color: white;
+}
+
+.card-btn.delete:hover {
+  background-color: darkred;
 }
