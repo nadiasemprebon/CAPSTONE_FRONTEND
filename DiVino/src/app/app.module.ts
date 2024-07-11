@@ -15,6 +15,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     NavbarComponent,
     FooterComponent,
 
+
   ],
   imports: [
     BrowserModule,
