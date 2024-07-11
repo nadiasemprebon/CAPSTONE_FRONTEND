@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TravelpackageServiceService } from '../travelpackages/travelpackage-service.service';
 import { ITravelpackage } from '../../interfaces/itravelpackage';
 import { Subscription } from 'rxjs';
+import { ModaleEditComponent } from '../../modale-edit/modale-edit.component';
+
 
 @Component({
   selector: 'app-home',
@@ -12,7 +15,7 @@ export class HomeComponent implements OnInit {
   travelpackages: ITravelpackage[] = [];
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private travelpackageService: TravelpackageServiceService) {}
+  constructor(private travelpackageService: TravelpackageServiceService, private modalService: NgbModal) {}
 
   ngOnInit() {
     this.travelpackageService.travelpackage$.subscribe(travelpackages => {
@@ -20,6 +23,25 @@ export class HomeComponent implements OnInit {
     });
 
     this.travelpackageService.getAll().subscribe();
+  }
+
+  openEditModal(id: number) {
+    const travelPackage = this.travelpackages.find(pkg => pkg.id === id);
+    if (travelPackage) {
+      const modalRef = this.modalService.open(ModaleEditComponent);
+      modalRef.componentInstance.travelPackage = travelPackage;
+
+      modalRef.result.then((result) => {
+        if (result) {
+          const index = this.travelpackages.findIndex(pkg => pkg.id === result.id);
+          if (index !== -1) {
+            this.travelpackages[index] = result;
+          }
+        }
+      }).catch((error) => {
+        console.log('Modale chiuso senza modifiche', error);
+      });
+    }
   }
 
   deletePackage(id: number) {
