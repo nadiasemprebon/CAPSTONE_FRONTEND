@@ -4,6 +4,7 @@ import { TravelpackageServiceService } from '../travelpackages/travelpackage-ser
 import { ITravelpackage } from '../../interfaces/itravelpackage';
 import { Subscription } from 'rxjs';
 import { ModaleEditComponent } from '../../modale-edit/modale-edit.component';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
@@ -14,13 +15,20 @@ import { ModaleEditComponent } from '../../modale-edit/modale-edit.component';
 export class HomeComponent implements OnInit {
   travelpackages: ITravelpackage[] = [];
   private subscriptions: Subscription = new Subscription();
-
-  constructor(private travelpackageService: TravelpackageServiceService, private modalService: NgbModal) {}
+  isUserLoggedIn:boolean = false;
+  constructor(private travelpackageService: TravelpackageServiceService, private modalService: NgbModal, private authSvc:AuthService) {}
 
   ngOnInit() {
+    this.authSvc.isLoggedIn$.subscribe(data => {
+
+      this.isUserLoggedIn = data;
+
+    })
     this.travelpackageService.travelpackage$.subscribe(travelpackages => {
       this.travelpackages = travelpackages;
-    });
+
+    })
+  ;
 
     this.travelpackageService.getAll().subscribe();
   }

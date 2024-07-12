@@ -80,6 +80,10 @@ export class TravelpackageServiceService {
       })
     };
 
+//serve per controllare se prende il token
+    console.log(this.authSvc.getAccessToken())
+    console.log(`URL: ${this.apiUrl}/${id}`);
+    console.log('Intestazioni:', httpOptions.headers);
     return this.http.delete<void>(`${this.apiUrl}/${id}`, httpOptions);
   }
 }

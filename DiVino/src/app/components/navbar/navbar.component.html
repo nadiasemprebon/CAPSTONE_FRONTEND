@@ -12,16 +12,16 @@
           <a class="nav-link active" aria-current="page" routerLink="/">Tour</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/travelpackages">Crea Offerta</a>
+          <a class="nav-link" routerLink="/travelpackages" *ngIf="isUserLoggedIn">Crea Offerta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/wineries">Crea Cantina</a>
+          <a class="nav-link" routerLink="/wineries" *ngIf="isUserLoggedIn">Crea Cantina</a>
         </li>
       </ul>
       <div class="d-flex ms-auto">
-        <button routerLink="/auth/login" type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button routerLink="/auth/register" type="button" class="btn btn-primary me-2">Register</button>
-        <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger me-2">Esci</button>
+        <button routerLink="/auth/login" type="button" class="btn btn-outline-primary me-2" *ngIf="!isUserLoggedIn">Login</button>
+        <button routerLink="/auth/register" type="button" class="btn btn-primary me-2" *ngIf="!isUserLoggedIn">Register</button>
+        <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger me-2" >Esci</button>
       </div>
     </div>
   </div>

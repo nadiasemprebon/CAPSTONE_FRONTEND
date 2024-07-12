@@ -33,8 +33,8 @@
     <hr class="card-divider">
     <div class="card-footer">
       <div class="card-price"><span>€</span> {{ package.price | currency }}</div>
-      <button class="delete-btn" (click)="deletePackage(package.id)">Elimina</button>
-      <button class="edit-btn" (click)="openEditModal(package.id)">Modifica</button>
+      <button class="delete-btn" (click)="deletePackage(package.id)"  *ngIf="isUserLoggedIn">Elimina</button>
+      <button class="edit-btn" (click)="openEditModal(package.id)"  *ngIf="isUserLoggedIn">Modifica</button>
     </div>
   </div>
 </body>
