@@ -1,35 +1,30 @@
 
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+
 body {
-  background-color: #fff; /* Colore di sfondo bianco */
-  font-family: Arial, sans-serif; /* Font family generico */
-  margin: 0; /* Rimuove i margini di default */
-  padding: 0; /* Rimuove i padding di default */
+
+  font-family: "Noto Serif", serif;
+  font-size: 15px;
+  font-weight: 200;
+  font-style: italic;
+  font-variation-settings:
+    "wdth" 100;
+    display: flex;
+  flex-direction: column;
+
 }
 
-.container {
-  max-width: 1200px; /* Larghezza massima del contenitore */
-  margin: 2rem auto; /* Margine superiore e inferiore */
-  padding: 0 1rem; /* Padding laterale */
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold; /* Grassetto per tutti i titoli */
-}
-
-p {
-  line-height: 1; /* Altezza della riga */
-}
-
-
-.btn {
-  padding: 0.5rem 1rem; /* Padding del pulsante */
-  cursor: pointer; /* Cambia il cursore in pointer al passaggio del mouse */
+html,
+body,
+app-root {
+height: 100%;
 }
 
 
-.text-center {
-  text-align: center; /* Allinea il testo al centro */
-}
+main{
+  flex-grow:1;
 
+}
 

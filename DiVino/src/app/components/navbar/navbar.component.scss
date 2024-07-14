@@ -1,73 +1,47 @@
-/* Navbar CSS */
 .navbar {
-  background-color: #ffffff; /* Sfondo bianco */
-  padding: 1rem 0; /* Padding superiore e inferiore */
+  background-color: #4b2c58; /* Sfondo viola */
+  padding: 0.5rem 1rem; /* Adjusted padding */
   width: 100%;
   z-index: 1000;
-  font-family: 'Arial', sans-serif; /* Font elegante */
+
 }
 
 .navbar-brand {
-  color: #4b0082; /* Colore del testo principale */
+  color:#f9f0e1; /* Colore del testo principale */
   font-weight: bold; /* Grassetto */
   display: flex;
   align-items: center;
 }
 
 .navbar-brand .logo {
-  height: 30px;
+  height: 35px;
+  width: 150px;
   margin-right: 10px;
+  margin:15px;
 }
 
 .navbar-nav .nav-link {
-  color: #4b0082; /* Colore del testo secondario */
+  color: #f9f0e1; /* Colore del testo secondario */
   padding: 0.5rem 1rem; /* Padding laterale */
-  text-decoration: none; /* Rimuovi la sottolineatura */
-  font-size: 1rem; /* Dimensione del font */
+  margin-top: 5px;
+  font-weight: 250;
+  font-size: 24px; /* Dimensione del font */
 }
 
 .navbar-nav .nav-link:hover {
-  color: #800000; /* Colore del testo al passaggio del mouse rosso borgogna */
-}
-
-.btn-outline-primary {
-  color: #4b0082; /* Colore del testo del pulsante */
-  border-color: #4b0082; /* Colore del bordo del pulsante */
-  margin-right: 10px;
-}
-
-.btn-outline-primary:hover {
-  background-color: #4b0082; /* Colore di sfondo al passaggio del mouse */
-  color: #fff; /* Colore del testo al passaggio del mouse */
-}
-
-.btn-primary {
-  background-color: #4b0082; /* Colore di sfondo del pulsante primario */
-  border-color: #4b0082; /* Colore del bordo del pulsante primario */
-  color: #fff; /* Colore del testo del pulsante primario */
-  margin-right: 10px;
-}
-
-.btn-primary:hover {
-  background-color: #800000; /* Colore di sfondo del pulsante primario al passaggio del mouse */
-  border-color: #800000; /* Colore del bordo del pulsante primario al passaggio del mouse */
-}
-
-.btn-danger {
-  margin-right: 10px;
-}
-
-.d-flex .bi-cart {
-  font-size: 1.5rem;
-  color: #4b0082;
-}
-
-.d-flex .bi-cart:hover {
-  color: #800000; /* Colore al passaggio del mouse rosso borgogna */
+  color:#EFD8B2; /* Colore del testo al passaggio del mouse */
 }
 
 
-img{
-  width: 50px;
-  height: 50px;
-}
+.bi{
+  color:#f9f0e1;
+  font-size: 25px
+    }
+
+
+  .bi:hover {
+    color:#EFD8B2;
+  }
+
+
+

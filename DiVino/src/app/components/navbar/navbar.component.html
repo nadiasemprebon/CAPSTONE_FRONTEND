@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">
-      <img src="https://res-console.cloudinary.com/dsgbzgpvc/thumbnails/v1/image/upload/v1720542113/U2NyZWVuc2hvdF8yMDI0LTA3LTA2XzEyMDYxMV9mY2M3Ym0=/drilldown" alt="DiVino" class="logo">
+      <img src="https://res-console.cloudinary.com/dsgbzgpvc/thumbnails/v1/image/upload/v1720916792/bG9nb19uYXZiYXJfd3B4YXk3/drilldown" alt="DiVino" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -19,8 +19,12 @@
         </li>
       </ul>
       <div class="d-flex ms-auto">
-        <button routerLink="/auth/login" type="button" class="btn btn-outline-primary me-2" *ngIf="!isUserLoggedIn">Login</button>
-        <button routerLink="/auth/register" type="button" class="btn btn-primary me-2" *ngIf="!isUserLoggedIn">Register</button>
+        <button routerLink="/auth/login" type="button" class="btn  me-2" *ngIf="!isUserLoggedIn">
+          <i class="bi bi-person-circle"></i>
+        </button>
+        <button routerLink="/auth/register" type="button" class="btn  me-2" *ngIf="!isUserLoggedIn">
+          <i class="bi bi-box-arrow-in-left"></i>
+        </button>
         <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger me-2" >Esci</button>
       </div>
     </div>

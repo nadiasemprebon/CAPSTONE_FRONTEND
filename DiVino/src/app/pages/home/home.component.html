@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DiVino</title>
-</head>
-<body>
-  <header class="hero">
-    <p class="heroP">Oltre 500 pacchetti esperienza in tutta Italia</p>
-  </header>
-  <div class="content container">
-    <section>
-      <h1>Benvenuti nel mondo di DiVino</h1>
-      <p>Scopri l'affascinante mondo del vino italiano con le nostre visite guidate in cantina. Approfondisci i segreti della produzione vinicola e assapora i migliori vini del Paese.</p>
-      <p>Offriamo diverse soluzioni per rendere il tuo soggiorno ancora più speciale, come pernottamenti in cantina, picnic tra le vigne, cene in cantina, passeggiate a cavallo, tour in ebike, corsi di cucina e molto altro. Inizia il tuo viaggio con DiVino, prenota ora.</p>
-      <p>Prenota ora</p>
-    </section>
+
+<div class="body">
+
+  <div class="content container d-flex align-items-center">
+
+
+
+<div>
+  <img class= "pb-5"src="https://res-console.cloudinary.com/dsgbzgpvc/thumbnails/v1/image/upload/v1720916793/bG9nb19wdXJwbGVfeWJyemE2/drilldown" alt="logo DiVino">
+   <h5 class="color pt-5 pb-3">Eplora l'eccellenza vinicola e acquista <br> il lusso con un click.</h5>
+      <h3 class="color">Siamo il portale dove l élite incontra <br>la perfezione enologica</h3>
+    </div>
+
+      <img class=" lady pt5" src="https://res-console.cloudinary.com/dsgbzgpvc/thumbnails/v1/image/upload/v1720992044/YXVyZWxpYV9iNGo3eHk=/drilldown" alt="girl">
+
   </div>
+
 
   <!-- cards ciclo -->
   <div *ngFor="let package of travelpackages" class="card mt-3">
@@ -37,5 +35,5 @@
       <button class="edit-btn" (click)="openEditModal(package.id)"  *ngIf="isUserLoggedIn">Modifica</button>
     </div>
   </div>
-</body>
-</html>
+</div>
+
