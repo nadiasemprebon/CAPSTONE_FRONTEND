@@ -1,3 +1,101 @@
 .container{
-  padding-top: 300px;
+
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 400px;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  background: #fdf9ea;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border: 2px solid #4b2c58;
+  border-radius: 20px;
+  z-index: 1000;
+  margin-bottom: 50px;
 }
+
+
+.container h1 {
+  margin: 0 0 30px;
+  padding: 0;
+  color:#4b2c58;
+  text-align: center;
+}
+
+
+
+
+.container .travelpackage{
+  position: relative;
+}
+
+
+.container .travelpackage input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #4b2c58;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid#4b2c58;
+  outline: none;
+  background: transparent;
+}
+
+.letter{
+  color: #4b2c58 ;
+}
+
+
+.container .winery label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color:#4b2c58;
+  pointer-events: none;
+  transition: .5s;
+}
+
+
+.container .travelpackage input:focus ~ label,
+.container .travelpackage input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color:#4b2c58;
+  font-size: 12px;
+}
+.container  {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container  {
+  color:#4b2c58;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+
+
+.container button {
+  background-color: #EFD8B2;
+  margin-right: 100px;
+  color: #4b2c58;
+  border: 2px solid #4b2c58;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  margin-left: 100px;
+}
+
+
+.container button:hover {
+  background-color:#4b2c58;
+  color:#EFD8B2;
+}
+
+

@@ -1,22 +1,31 @@
 <div class="container">
 <h1>Crea una Cantina</h1>
 <form #wineryForm="ngForm" (ngSubmit)="aggiungiWinery()">
-  <input type="text" name="wineryName"
+  <div class="winery">
+    <input type="text" name="wineryName"
     [(ngModel)]="newWinery.wineryName"
-    class="form-control" placeholder="wineryName" required>
+    class=" letter" placeholder="" required>
 
+    <label class="letter">winery name</label></div>
+
+  <div class="winery">
   <input type="text" name="location"
     [(ngModel)]="newWinery.location"
-    class="form-control" placeholder="location" required>
-
-  <input type="text" name="description"
+    class=" letter" placeholder="" required>
+    <label class="letter">location</label>
+  </div>
+  <div class="winery">
+    <input type="text" name="description"
     [(ngModel)]="newWinery.description"
-    class="form-control" placeholder="description" required>
+    class=" letter" placeholder="" required>
+    <label class="letter">description</label>
+  </div>
 
+  <div class="winery">
   <input type="text" name="tastingExperience"
     [(ngModel)]="newWinery.tastingExperience"
-    class="form-control" placeholder="tastingExperience" required>
-
-  <button type="submit" class="btn btn-primary">Crea</button>
+    class=" letter" placeholder="" required>
+    <label class="letter">tasting experience</label></div>
+  <button type="submit" class="btn ">Crea</button>
 </form>
 </div>

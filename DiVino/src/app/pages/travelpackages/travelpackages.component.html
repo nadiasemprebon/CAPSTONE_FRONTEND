@@ -1,58 +1,63 @@
-<div class="container mt-3">
-  <form class="pt-5">
-    <div class="box">
+<div class="container mt-4">
+  <h1>Proponi un'esperienza</h1>
+  <form class="pt-3">
+    <div class="travelpackage">
+       <label class="letter">wineryId</label>
       <input
-      type="number"
-      name="wineryId"
-      [(ngModel)]="newTravelpackage.wineryId"
-      class="form-control"
-      placeholder="wineryId"
-    />
-  </div>
+        type="number"
+        name="wineryId"
+        [(ngModel)]="newTravelpackage.wineryId"
+        class="letter "
+        placeholder=""
+        required
+      />
 
-    <div class="box">
+    </div>
+
+    <div class="travelpackage">
+      <label class="letter">start date</label>
       <input
-      type="text"
-      name="travelPackageName"
-      [(ngModel)]="newTravelpackage.travelPackageName"
-      class="form-control"
-      placeholder="travelPackageName"
-    /></div>
+        type="date"
+        name="startDate"
+        [(ngModel)]="newTravelpackage.startDate"
+        class="letter "
+        placeholder=""
+        required
+      />
 
-    <div class="box">
-       <input
-      type="date"
-      name="startDate"
-      [(ngModel)]="newTravelpackage.startDate"
-      class="form-control"
-      placeholder="startDate"
-    />
-  </div>
+    </div>
 
-    <div class="box">
+    <div class="travelpackage">
+      <label class="letter">end date</label>
       <input
-      type="date"
-      name="endDate"
-      [(ngModel)]="newTravelpackage.endDate"
-      class="form-control"
-      placeholder="endDate"
-    /></div>
+        type="date"
+        name="endDate"
+        [(ngModel)]="newTravelpackage.endDate"
+        class="letter "
+        placeholder=""
+        required
+      />
+      <label class="letter">price</label>
+    </div>
 
-    <div class="box">
+    <div class="travelpackage">
       <input
-      type="number"
-      name="price"
-      [(ngModel)]="newTravelpackage.price"
-      class="form-control"
-      placeholder="price"
-    />
-  </div>
+        type="number"
+        name="price"
+        [(ngModel)]="newTravelpackage.price"
+        class="letter"
+        placeholder=""
+        required
+      />
+      <label class="letter">image</label>
+    </div>
 
-    <div class="box">
-        <input type="file" (change)="onFileSelected($event)" class="form-control" />
-      </div>
+    <div class="travelpackage">
+      <input type="file" (change)="onFileSelected($event)" class="letter " />
 
-    <button (click)="aggiungiTravelpackage()" class="btn btn-primary">
+    </div>
+
+    <button (click)="aggiungiTravelpackage()" class="btn ">
       Crea
     </button>
   </form>
