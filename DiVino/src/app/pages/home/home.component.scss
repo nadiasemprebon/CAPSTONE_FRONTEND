@@ -44,7 +44,9 @@ html, body {
   z-index: 1; /* Posiziona l'immagine del fumo dietro il contenuto */
 }
 
-#card{z-index: 2;}
+#card{
+  z-index: 2;}
+
 .color {
   color: #4b2c58;
 }
