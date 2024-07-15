@@ -4,26 +4,29 @@ import { ITravelpackage } from '../../interfaces/itravelpackage';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 import { environment } from '../../../environments/environment.development';
+import { ITravelResponse } from '../../interfaces/itravel-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TravelpackageServiceService {
   private travelpackage: ITravelpackage[] = [];
+  private travelpackageResp: ITravelResponse[]=[];
   private travelpackageSubject = new BehaviorSubject<ITravelpackage[]>([]);
+  private travelpackageRespSubject = new BehaviorSubject<ITravelResponse[]>([]);
   travelpackage$ = this.travelpackageSubject.asObservable();
-
+  travelpackageResp$ = this.travelpackageRespSubject.asObservable();
   constructor(private http: HttpClient, private authSvc: AuthService) {
     this.getAll().subscribe();
   }
 
   apiUrl: string = environment.travelpackageUrl;
 
-  getAll(): Observable<ITravelpackage[]> {
-    return this.http.get<ITravelpackage[]>(this.apiUrl).pipe(
+  getAll(): Observable<ITravelResponse[]> {
+    return this.http.get<ITravelResponse[]>(this.apiUrl).pipe(
       tap(trav => {
-        this.travelpackageSubject.next(trav);
-        this.travelpackage = trav;
+        this.travelpackageRespSubject.next(trav);
+        this.travelpackageResp = trav;
       })
     );
   }
@@ -32,9 +35,9 @@ export class TravelpackageServiceService {
     return this.travelpackage.find(u => u.id === id) || null;
   }
 
-  update(travel: ITravelpackage): Observable<ITravelpackage> {
+  update(travel: ITravelResponse): Observable<ITravelResponse> {
     const formData = new FormData();
-    formData.append('wineryId', travel.wineryId.toString());
+    formData.append('winery', travel.winery.toString());
     formData.append('travelPackageName', travel.travelPackageName);
     if (travel.imageUrl) {
       formData.append('imageUrl', travel.imageUrl);
@@ -49,11 +52,11 @@ export class TravelpackageServiceService {
       })
     };
 
-    return this.http.put<ITravelpackage>(`${this.apiUrl}/${travel.id}`, formData, httpOptions).pipe(
+    return this.http.put<ITravelResponse>(`${this.apiUrl}/${travel.id}`, formData, httpOptions).pipe(
       tap(updatedTravel => {
-        const index = this.travelpackage.findIndex(u => u.id === travel.id);
-        this.travelpackage[index] = updatedTravel;
-        this.travelpackageSubject.next(this.travelpackage);
+        const index = this.travelpackageResp.findIndex(u => u.id === travel.id);
+        this.travelpackageResp[index] = updatedTravel;
+        this.travelpackageRespSubject.next(this.travelpackageResp);
       })
     );
   }

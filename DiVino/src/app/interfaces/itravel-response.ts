@@ -1,8 +1,9 @@
 import { IWinery } from "./iwinery";
 
-export interface ITravelpackage {
+export interface ITravelResponse {
+
   id: number;
-  wineryId: IWinery; // Assicurati che sia un numero
+  winery: IWinery; // Assicurati che sia un numero
   travelPackageName: string;
   imageUrl?: string;
   startDate: Date;

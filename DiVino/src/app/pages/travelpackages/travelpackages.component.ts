@@ -7,16 +7,12 @@ import { TravelpackageServiceService } from './travelpackage-service.service';
   templateUrl: './travelpackages.component.html',
   styleUrls: ['./travelpackages.component.scss']
 })
-export class TravelpackagesComponent implements OnInit {
+export class TravelpackagesComponent {
   newTravelpackage: Partial<ITravelpackage> = {};
   selectedFile: File | null = null;
   travelpackages: ITravelpackage[] = [];
 
   constructor(private travSvc: TravelpackageServiceService) {}
-
-  ngOnInit(): void {
-    this.getTravelPackages();
-  }
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
@@ -41,15 +37,15 @@ export class TravelpackagesComponent implements OnInit {
     formData.append('price', this.newTravelpackage.price!.toString());
 
     this.travSvc.create(formData).subscribe(() => {
-      this.newTravelpackage = {};
-      this.selectedFile = null;
-      this.getTravelPackages(); // Aggiorna la lista dei pacchetti dopo l'aggiunta
+      // Aggiorna la lista dei pacchetti dopo l'aggiunta
+      this.resetForm();
     });
   }
 
-  getTravelPackages(): void {
-    this.travSvc.getAll().subscribe(travelpackages => {
-      this.travelpackages = travelpackages;
-    });
+  resetForm() {
+    this.newTravelpackage = {};
+    this.selectedFile = null;
+    // Se stai usando template-driven form, resetta il form qui
+    // ad esempio con form.reset() se hai una reference al form
   }
 }

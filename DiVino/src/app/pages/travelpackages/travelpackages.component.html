@@ -1,11 +1,59 @@
-<div class="container">
-<form class="pt-5">
-  <input type="number" name="wineryId" [(ngModel)]="newTravelpackage.wineryId" class="form-control" placeholder="wineryId">
-  <input type="text" name="travelPackageName" [(ngModel)]="newTravelpackage.travelPackageName" class="form-control" placeholder="travelPackageName">
-  <input type="date" name="startDate" [(ngModel)]="newTravelpackage.startDate" class="form-control" placeholder="startDate">
-  <input type="date" name="endDate" [(ngModel)]="newTravelpackage.endDate" class="form-control" placeholder="endDate">
-  <input type="number" name="price" [(ngModel)]="newTravelpackage.price" class="form-control" placeholder="price">
-  <input type="file" (change)="onFileSelected($event)" class="form-control">
-  <button (click)="aggiungiTravelpackage()" class="btn btn-primary">Crea</button>
-</form>
+<div class="container mt-3">
+  <form class="pt-5">
+    <div class="box">
+      <input
+      type="number"
+      name="wineryId"
+      [(ngModel)]="newTravelpackage.wineryId"
+      class="form-control"
+      placeholder="wineryId"
+    />
+  </div>
+
+    <div class="box">
+      <input
+      type="text"
+      name="travelPackageName"
+      [(ngModel)]="newTravelpackage.travelPackageName"
+      class="form-control"
+      placeholder="travelPackageName"
+    /></div>
+
+    <div class="box">
+       <input
+      type="date"
+      name="startDate"
+      [(ngModel)]="newTravelpackage.startDate"
+      class="form-control"
+      placeholder="startDate"
+    />
+  </div>
+
+    <div class="box">
+      <input
+      type="date"
+      name="endDate"
+      [(ngModel)]="newTravelpackage.endDate"
+      class="form-control"
+      placeholder="endDate"
+    /></div>
+
+    <div class="box">
+      <input
+      type="number"
+      name="price"
+      [(ngModel)]="newTravelpackage.price"
+      class="form-control"
+      placeholder="price"
+    />
+  </div>
+
+    <div class="box">
+        <input type="file" (change)="onFileSelected($event)" class="form-control" />
+      </div>
+
+    <button (click)="aggiungiTravelpackage()" class="btn btn-primary">
+      Crea
+    </button>
+  </form>
 </div>

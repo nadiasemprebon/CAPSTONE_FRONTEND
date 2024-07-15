@@ -18,7 +18,7 @@
         <h5 class="card-title text-primary">{{ package.travelPackageName }}</h5>
         <p class="card-text">Elegante e intima esperienza in una fantastica e rinomata cantina</p>
         <div class="card-subtitle">
-          Winery ID: {{ package.wineryId }}<br />
+          Winery ID: {{ package.winery.wineryName}}<br />
           Start Date: {{ package.startDate | date }}<br />
           End Date: {{ package.endDate | date }}
         </div>

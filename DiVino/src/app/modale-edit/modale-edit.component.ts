@@ -16,7 +16,7 @@ export class ModaleEditComponent implements OnInit {
     this.editPackageForm = this.fb.group({
       id: [''],
       travelPackageName: [''],
-      wineryId: [''],
+      winery: [''],
       startDate: [''],
       endDate: [''],
       price: [''],

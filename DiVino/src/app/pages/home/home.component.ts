@@ -1,36 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TravelpackageServiceService } from '../travelpackages/travelpackage-service.service';
 import { ITravelpackage } from '../../interfaces/itravelpackage';
 import { Subscription } from 'rxjs';
 import { ModaleEditComponent } from '../../modale-edit/modale-edit.component';
 import { AuthService } from '../../auth/auth.service';
-
+import { ITravelResponse } from '../../interfaces/itravel-response';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  travelpackages: ITravelpackage[] = [];
+export class HomeComponent implements OnInit, OnDestroy {
+  travelpackages: ITravelResponse[] = [];
   private subscriptions: Subscription = new Subscription();
-  isUserLoggedIn:boolean = false;
-  constructor(private travelpackageService: TravelpackageServiceService, private modalService: NgbModal, private authSvc:AuthService) {}
+  isUserLoggedIn: boolean = false;
+
+  constructor(
+    private travelpackageService: TravelpackageServiceService,
+    private modalService: NgbModal,
+    private authSvc: AuthService
+  ) {}
 
   ngOnInit() {
-    this.authSvc.isLoggedIn$.subscribe(data => {
+    // Sottoscrizione per verificare se l'utente è loggato
+    this.subscriptions.add(
+      this.authSvc.isLoggedIn$.subscribe(data => {
+        this.isUserLoggedIn = data;
+      })
+    );
 
-      this.isUserLoggedIn = data;
+    // Sottoscrizione per ottenere i pacchetti di viaggio
+    this.subscriptions.add(
+      this.travelpackageService.travelpackageResp$.subscribe(travelpackages => {
+        this.travelpackages = travelpackages;
+      })
+    );
 
-    })
-    this.travelpackageService.travelpackage$.subscribe(travelpackages => {
-      this.travelpackages = travelpackages;
-
-    })
-  ;
-
+    // Inizializzazione dei pacchetti di viaggio
     this.travelpackageService.getAll().subscribe();
+  }
+
+  ngOnDestroy() {
+    // Annullare tutte le sottoscrizioni per evitare memory leaks
+    this.subscriptions.unsubscribe();
   }
 
   openEditModal(id: number) {
@@ -63,12 +77,13 @@ export class HomeComponent implements OnInit {
     const deleteTravelpackageSub = this.travelpackageService.delete(id).subscribe({
       next: () => {
         this.travelpackages = this.travelpackages.filter(product => product.id !== id);
-        this.subscriptions.add(deleteTravelpackageSub);
         console.log('Pacchetto cancellato, nuovo array:', this.travelpackages); // Log nuovo array
       },
       error: (error) => {
         console.error('Errore nella cancellazione del prodotto', error);
       }
     });
+
+    this.subscriptions.add(deleteTravelpackageSub);
   }
 }
