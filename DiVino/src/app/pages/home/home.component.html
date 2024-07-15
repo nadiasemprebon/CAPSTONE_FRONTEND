@@ -1,39 +1,35 @@
-
 <div class="body">
-
-  <div class="content container d-flex align-items-center">
-
-
-
-<div>
-  <img class= "pb-5"src="https://res-console.cloudinary.com/dsgbzgpvc/thumbnails/v1/image/upload/v1720916793/bG9nb19wdXJwbGVfeWJyemE2/drilldown" alt="logo DiVino">
-   <h5 class="color pt-5 pb-3">Esplora l'eccellenza vinicola e acquista <br> il lusso con un click.</h5>
-      <h3 class="color">Siamo il portale dove l élite incontra <br>la perfezione enologica.</h3>
+  <div class="content container d-flex align-items-center ">
+    <div>
+      <img class="pb-5" src="https://res-console.cloudinary.com/dsgbzgpvc/thumbnails/v1/image/upload/v1720916793/bG9nb19wdXJwbGVfeWJyemE2/drilldown" alt="logo DiVino"/>
+      <h5 class="color pt-5 pb-3">Esplora l'eccellenza vinicola e acquista <br /> il lusso con un click.</h5>
+      <h3 class="color">Siamo il portale dove l'élite incontra <br />la perfezione enologica.</h3>
     </div>
-
-      <img class=" lady pt5" src="../../../assets/aurelia.png" alt="girl">
-
+    <img class="lady pt5" src="../../../assets/aurelia.png" alt="girl"/>
   </div>
 
-
   <!-- cards ciclo -->
-  <div *ngFor="let package of travelpackages" class="card mt-3">
-    <div class="card-img">
-      <img *ngIf="package.imageUrl" [src]="package.imageUrl" alt="vitigni">
-      <div class="img"></div>
-    </div>
-    <div class="card-title">{{ package.travelPackageName }}</div>
-    <div class="card-subtitle">
-      Winery ID: {{ package.wineryId }}<br>
-      Start Date: {{ package.startDate | date }}<br>
-      End Date: {{ package.endDate | date }}
-    </div>
-    <hr class="card-divider">
-    <div class="card-footer">
-      <div class="card-price"><span>€</span> {{ package.price | currency }}</div>
-      <button class="delete-btn" (click)="deletePackage(package.id)"  *ngIf="isUserLoggedIn">Elimina</button>
-      <button class="edit-btn" (click)="openEditModal(package.id)"  *ngIf="isUserLoggedIn">Modifica</button>
+  <div id="card" class="card-container d-flex flex-wrap justify-content-center">
+    <div *ngFor="let package of travelpackages" class="card mt-3 border-0 shadow-sm mx-2">
+      <div class="card-img-top d-flex justify-content-center">
+        <img *ngIf="package.imageUrl" [src]="package.imageUrl" alt="vitigni" class="img-fluid" style="width: 100px"/>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title text-primary">{{ package.travelPackageName }}</h5>
+        <p class="card-text">Elegante e intima esperienza in una fantastica e rinomata cantina</p>
+        <div class="card-subtitle">
+          Winery ID: {{ package.wineryId }}<br />
+          Start Date: {{ package.startDate | date }}<br />
+          End Date: {{ package.endDate | date }}
+        </div>
+        <hr class="card-divider"/>
+        <div class="card-footer d-flex justify-content-between align-items-center border-0">
+          <span class="card-price text-primary"> {{ package.price | currency:'EUR' }}</span>
+          <button class="btn btn-circle btn-primary"><i class="bi bi-cart"></i></button>
+          <button (click)="openEditModal(package.id)" *ngIf="isUserLoggedIn" class="btn btn-circle btn-primary"><i class="bi bi-circle"></i></button>
+          <button (click)="deletePackage(package.id)" *ngIf="isUserLoggedIn"  class="btn btn-circle btn-primary"><i class="bi bi-star"></i></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-

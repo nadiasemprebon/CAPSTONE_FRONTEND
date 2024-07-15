@@ -1,3 +1,4 @@
+<div class="container">
 <form class="pt-5">
   <input type="number" name="wineryId" [(ngModel)]="newTravelpackage.wineryId" class="form-control" placeholder="wineryId">
   <input type="text" name="travelPackageName" [(ngModel)]="newTravelpackage.travelPackageName" class="form-control" placeholder="travelPackageName">
@@ -7,3 +8,4 @@
   <input type="file" (change)="onFileSelected($event)" class="form-control">
   <button (click)="aggiungiTravelpackage()" class="btn btn-primary">Crea</button>
 </form>
+</div>
