@@ -14,11 +14,11 @@ import { PopupRegisterComponent } from '../popup-register/popup-register.compone
 export class RegisterComponent {
 
   registerData: Partial<IUser> = {
-    userName: "john_doe",
-    password: "securePassword123",
-    firstName: "john",
-    lastName: "doe",
-    email: "john.doe@example.com",
+    userName: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    email: "",
   };
 
   @ViewChild('registerForm') registerForm!: NgForm;

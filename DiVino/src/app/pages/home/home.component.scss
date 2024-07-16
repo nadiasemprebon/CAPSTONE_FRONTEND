@@ -44,28 +44,33 @@ html, body {
   z-index: 1; /* Posiziona l'immagine del fumo dietro il contenuto */
 }
 
-#card{
-  z-index: 2;}
+
+
+#card {
+  z-index: 2;
+}
+
 
 .color {
   color: #4b2c58;
+
 }
 
-h3  {
+h3 {
   margin-right: -42px;
   font-weight: 400;
 }
 
-.explor{
+.explor {
   color:  #4b2c58;
   text-align: center;
   margin: 50px 0;
   font-size: 30px;
-
-
 }
+
 h5 {
   font-weight: 400;
+  color: #4b2c58;
 }
 
 .lady {
@@ -77,15 +82,24 @@ h5 {
 }
 
 .card {
+  width: 300px; /* Dimensione fissa per la card */
+  height: 450px; /* Altezza fissa per la card */
   border: 1px solid #4b2c58;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff8f0;
-  margin-bottom: 20px; /* Aggiunge spazio tra le card */
+  background-color:  #fdf9ea;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  z-index: 2;/* Aggiunge spazio tra le card */
 }
 
 .card-img-top {
   margin-bottom: 15px;
+}
+
+.card-img-top img {
+  width: 150px; /* Dimensione fissa per l'immagine */
+  height: 150px; /* Altezza fissa per l'immagine */
 }
 
 .card-title {

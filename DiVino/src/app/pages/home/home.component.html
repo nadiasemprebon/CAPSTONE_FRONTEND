@@ -10,28 +10,146 @@
 
   <div class="explor"><p>Scorri e scopri le migliori proposte del territorio</p></div>
 
-  <!-- cards ciclo -->
-  <div id="card" class="card-container d-flex flex-wrap justify-content-center">
-    <div *ngFor="let package of travelpackages" class="card mt-3 border-0 shadow-sm mx-2">
-      <div class="card-img-top d-flex justify-content-center">
-        <img *ngIf="package.imageUrl" [src]="package.imageUrl" alt="vitigni" class="img-fluid" style="width: 100px"/>
-      </div>
-      <div class="card-body text-center">
-        <h5 class="card-title text-primary">{{ package.travelPackageName }}</h5>
-        <p class="card-text">Elegante e intima esperienza in una fantastica e rinomata cantina</p>
-        <div class="card-subtitle">
-          nome cantina: {{ package.winery.wineryName}}<br />
-          dal: {{ package.startDate | date }}<br />
-          al: {{ package.endDate | date }}
+
+
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <!--card 1-->
+      <div class="col-md-4">
+        <div class="card mt-3 border-0 shadow-sm mx-2">
+          <div class="card-img-top d-flex justify-content-center">
+            <img src="../../../assets/glasswine_red.png" alt="vitigni" class="img-fluid" style="width: 100px"/>
+          </div>
+          <div  class="card-body text-center">
+            <h5 class="card-title">VALPOLICELLA, CASALI ANTICHI E DINTORNI</h5>
+            <p class="card-text">Ferragosto in amicizia tra vigneti e casali spettacolari.</p>
+            <div class="card-subtitle">Nome cantina: Quintarelli Srl<br />
+              dal: 14/08/2024<br />
+              al: 16/082024
+            </div>
+
+            <div  id="prima" class=" card-footer d-flex justify-content-between align-items-center border-0">
+              <span class="card-price">€300 </span>
+              <button class="btn btn-circle "><i class="bi bi-cart"></i></button>
+            </div>
+          </div>
         </div>
-        <hr class="card-divider"/>
-        <div class="card-footer d-flex justify-content-between align-items-center border-0">
-          <span class="card-price text-primary"> {{ package.price | currency:'EUR' }}</span>
-          <button class="btn btn-circle btn-primary"><i class="bi bi-cart"></i></button>
-          <button (click)="openEditModal(package.id)" *ngIf="isUserLoggedIn" class="btn btn-circle btn-primary"><i class="bi bi-circle"></i></button>
-          <button (click)="deletePackage(package.id)" *ngIf="isUserLoggedIn"  class="btn btn-circle btn-primary"><i class="bi bi-star"></i></button>
+      </div>
+
+      <!--card 2-->
+      <div class="col-md-4">
+        <div class="card mt-3 border-0 shadow-sm mx-2">
+          <div class="card-img-top d-flex justify-content-center">
+            <img src="../../../assets/glasswine_red.png" alt="vitigni" class="img-fluid" style="width: 100px"/>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title ">CACCIA AL TARTUFO IN COLLINA E VINI AD ALBA </h5>
+            <p class="card-text">Esplora la caccia al tartufo abbinata a vini rossi locali.</p>
+            <div class="card-subtitle">Nome cantina: Marchesi di Barolo<br />
+              dal: 05/10/2024<br />
+              al: 06/10/2024
+            </div>
+
+            <div id="seconda" class="card-footer d-flex justify-content-between align-items-center border-0">
+              <span class="card-price ">€320 </span>
+              <button class="btn btn-circle "><i class="bi bi-cart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--card 3-->
+      <div class="col-md-4">
+        <div class="card mt-3 border-0 shadow-sm mx-2">
+          <div class="card-img-top d-flex justify-content-center">
+            <img src="../../../assets/glasswine_red.png" alt="vitigni" class="img-fluid" style="width: 100px"/>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title ">TOUR DEL VINO AL TRAMONTO A SANTORINI</h5>
+            <p class="card-text">Vivi iL tramonto mozzafiato mentre assapori vini bianchi pregiati.</p>
+            <div class="card-subtitle">Nome cantina: Santo Wines<br />
+              dal: 15/08/2024<br />
+              al: 17/08/2024
+            </div>
+
+            <div class="card-footer d-flex justify-content-between align-items-center border-0">
+              <span class="card-price ">€290</span>
+              <button class="btn btn-circle "><i class="bi bi-cart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--card 4-->
+      <div class="col-md-4">
+        <div class="card mt-3 border-0 shadow-sm mx-2">
+          <div class="card-img-top d-flex justify-content-center">
+            <img src="../../../assets/glasswine_red.png" alt="vitigni" class="img-fluid" style="width: 100px"/>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title ">TOUR DEL VINO E CIOCCOLATO IN PIEMONTE</h5>
+            <p class="card-text">Scopri l'abbinamento perfetto di vino e cioccolato.</p>
+            <div class="card-subtitle">Nome cantina: Cantina Ferrero <br />
+              dal: 12/09/2024<br />
+              al: 14/09/2024
+            </div>
+
+            <div class="card-footer d-flex justify-content-between align-items-center border-0">
+              <span class="card-price ">€310 </span>
+              <button class="btn btn-circle "><i class="bi bi-cart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--card 5-->
+      <div class="col-md-4">
+        <div class="card mt-3 border-0 shadow-sm mx-2">
+          <div class="card-img-top d-flex justify-content-center">
+            <img src="../../../assets/glasswine_red.png" alt="vitigni" class="img-fluid" style="width: 100px"/>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title ">DEGUSTAZIONE DI VINI BIOLOGICI IN SICILIA</h5>
+            <p class="card-text">Goditi i vini biologici dei vigneti più soleggiati con i nostri somelier.</p>
+            <div class="card-subtitle">Nome cantina: Planeta Winery<br />
+              dal: 25/09/2024<br />
+              al: 27/09/2024
+            </div>
+
+            <div id="quinta" class="card-footer d-flex justify-content-between align-items-center border-0">
+              <span class="card-price">€290 </span>
+              <button class="btn btn-circle "><i class="bi bi-cart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- cards ciclo -->
+      <div class="col-md-4" *ngFor="let package of travelpackages">
+        <div class="card mt-3 border-0 shadow-sm mx-2">
+          <div class="card-img-top d-flex justify-content-center">
+            <img *ngIf="package.imageUrl" [src]="package.imageUrl" alt="vitigni" class="img-fluid" style="width: 100px"/>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title ">{{ package.travelPackageName }}</h5>
+            <p class="card-text">Elegante e intima esperienza in una fantastica e rinomata cantina</p>
+            <div class="card-subtitle">
+              Nome cantina: {{ package.winery.wineryName}}<br />
+              dal: {{ package.startDate | date }}<br />
+              al: {{ package.endDate | date }}
+            </div>
+
+            <div class="card-footer d-flex justify-content-between align-items-center border-0">
+              <span class="card-price "> {{ package.price | currency:'EUR' }}</span>
+              <button class="btn btn-circle "><i class="bi bi-cart"></i></button>
+              <button (click)="openEditModal(package.id)" *ngIf="isUserLoggedIn" class="btn btn-circle"><i class="bi bi-pencil-square"></i></button>
+              <button (click)="deletePackage(package.id)" *ngIf="isUserLoggedIn"  class="btn btn-circle "><i class="bi bi-trash3"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
