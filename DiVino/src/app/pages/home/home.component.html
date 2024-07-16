@@ -8,6 +8,8 @@
     <img class="lady pt5" src="../../../assets/aurelia.png" alt="girl"/>
   </div>
 
+  <div class="explor"><p>Scorri e scopri le migliori proposte del territorio</p></div>
+
   <!-- cards ciclo -->
   <div id="card" class="card-container d-flex flex-wrap justify-content-center">
     <div *ngFor="let package of travelpackages" class="card mt-3 border-0 shadow-sm mx-2">
@@ -18,9 +20,9 @@
         <h5 class="card-title text-primary">{{ package.travelPackageName }}</h5>
         <p class="card-text">Elegante e intima esperienza in una fantastica e rinomata cantina</p>
         <div class="card-subtitle">
-          Winery ID: {{ package.winery.wineryName}}<br />
-          Start Date: {{ package.startDate | date }}<br />
-          End Date: {{ package.endDate | date }}
+          nome cantina: {{ package.winery.wineryName}}<br />
+          dal: {{ package.startDate | date }}<br />
+          al: {{ package.endDate | date }}
         </div>
         <hr class="card-divider"/>
         <div class="card-footer d-flex justify-content-between align-items-center border-0">
