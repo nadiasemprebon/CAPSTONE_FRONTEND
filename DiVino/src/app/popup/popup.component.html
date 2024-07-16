@@ -1,12 +1,14 @@
+<div class="container">
 <div class="modal-header">
-  <h4 class="modal-title">Winery Details</h4>
+  <h4 class="modal-title">Creazione della Cantina</h4>
 </div>
 <div class="modal-body">
-  <p><strong>Winery Name:</strong> {{ wineryData.wineryName }}</p>
-  <p><strong>Location:</strong> {{ wineryData.location }}</p>
-  <p><strong>Description:</strong> {{ wineryData.description }}</p>
-  <p><strong>Tasting Experience:</strong> {{ wineryData.tastingExperience }}</p>
+  <p><strong>Nome Cantina</strong> {{ wineryData.wineryName }}</p>
+  <p><strong>Luogo</strong> {{ wineryData.location }}</p>
+  <p><strong>Descrizione</strong> {{ wineryData.description }}</p>
+  <p><strong>Esperienza</strong> {{ wineryData.tastingExperience }}</p>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" (click)="activeModal.close()">Close</button>
+  <button type="button" class="btn " (click)="activeModal.close()">Close</button>
+</div>
 </div>
