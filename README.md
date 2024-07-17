@@ -15,6 +15,7 @@ Welcome to the Travel Packages Management project! This is a Spring Boot 3.3 app
 - [📚 API Endpoints](#-api-endpoints)
 - [💻 Technologies Used](#-technologies-used)
 - [🤝 Contributing](#-contributing)
+- [🙏 Acknowledgements](#-acknowledgements)
 - [📄 License](#-license)
 
 ## ✨ Features
@@ -101,6 +102,9 @@ Welcome to the Travel Packages Management project! This is a Spring Boot 3.3 app
 ## 🤝 Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## 🙏 Acknowledgements
+I would like to express my gratitude to my colleagues Andrea Petruzzo and Simone Giarnera for their invaluable support. Your help has been essential in the completion of this project. Thank you! 😊
 
 ## 📄 License
 
